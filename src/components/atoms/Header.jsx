@@ -12,5 +12,15 @@ export default function Header() {
 }
 
 const StyledHeader = styled.header`
-    
+    width: 100vw;
+    padding: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
 `;
