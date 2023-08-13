@@ -20,9 +20,9 @@ const Input = styled.input`
         outline: none;
         box-shadow: 0 0 7px 1px rgba(255, 30, 0, 1);
     }
-    &:disabled {
+    &:read-only {
         background-color: rgba(0, 0, 0, 0.75);
-        color: rgba(0, 0, 0, 0.8);
+        color: rgba(255, 255, 255, 0.6);
         &::placeholder {
             color: rgba(255, 255, 255, 0.4);
         }
