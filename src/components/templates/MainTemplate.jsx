@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import useToken from "../../hooks/useToken.js";
-import Header from "../atoms/Header.jsx";
-import Logo from "../atoms/Logo.jsx";
+import Header from "../molecules/Header.jsx";
 
 
 export default function MainTemplate({ children }) {
@@ -16,7 +15,6 @@ export default function MainTemplate({ children }) {
     return (
         <StyledTemplate>
             <Header />
-            <Logo />
             {children}
         </StyledTemplate>
     );

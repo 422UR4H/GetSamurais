@@ -1,9 +1,9 @@
-import { ThreeDots } from "react-loader-spinner";
-import { styled } from "styled-components";
+import { ThreeDots } from 'react-loader-spinner';
+import { styled } from 'styled-components'
 
-export default function ButtonSubmit({ disabled, children }) {
+export default function Button({ onClick, disabled, children, ref }) {
     return (
-        <StyledButtonSubmit type="submit" disabled={disabled}>
+        <StyledButton onClick={onClick} disabled={disabled}>
             {disabled ?
                 <ThreeDots
                     height="35"
@@ -13,23 +13,22 @@ export default function ButtonSubmit({ disabled, children }) {
                 :
                 children
             }
-        </StyledButtonSubmit>
-    );
+        </StyledButton>
+    )
 }
-ButtonSubmit.defaultPropt = { disabled: false }
+Button.defaultPropt = { disabled: false };
 
-const StyledButtonSubmit = styled.button`
+const StyledButton = styled.button`
     font-family: 'Lexend Deca', sans-serif;
     font-size: 1.15em;
     color: white;
     
     background-color: red;
-    width: 280px;
     height: 40px;
     border-radius: 20px;
     border: none;
-    margin-top: 10px;
-    box-shadow: 0 0 7px 1px rgba(0, 0, 0, 1);
+    padding-inline: 15px;
+    /* box-shadow: 0 0 7px 1px rgba(0, 0, 0, 1); */
 
     &:focus {
         outline: none;

@@ -18,6 +18,10 @@ function getUserByEmail(email) {
     return axios.get(`${import.meta.env.VITE_API_URL}/users/email/${email}`);
 }
 
+function getAllServices() {
+    return axios.get(`${import.meta.env.VITE_API_URL}/services`);
+}
+
 function getCep(cep) {
     return axios.get(`http://viacep.com.br/ws/${cep}/json`);
 }
@@ -25,6 +29,7 @@ function getCep(cep) {
 const api = {
     signin, signup,
     getUserByNick, getUserByEmail,
+    getAllServices,
     getCep
 };
 export default api;

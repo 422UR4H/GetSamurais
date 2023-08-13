@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import Header from "../atoms/Header.jsx";
+import Header from "../molecules/Header.jsx";
 import Logo from "../atoms/Logo.jsx";
 import FormContainer from "../atoms/FormContainer.jsx";
 

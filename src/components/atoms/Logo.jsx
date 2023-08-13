@@ -4,6 +4,7 @@ import { styled } from "styled-components";
 export default function Logo() {
     return (
         <StyledLogo>
+            Logo
             {/* <img src={logo} alt="Logo GetSamurais" /> */}
         </StyledLogo>
     );
