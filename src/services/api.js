@@ -35,6 +35,9 @@ function getServiceAllInfo(id) {
 function updateService(body, token, id) {
     return axios.put(`${import.meta.env.VITE_API_URL}/services/${id}`, body, config(token));
 }
+function createPhone(body, token) {
+    return axios.post(`${import.meta.env.VITE_API_URL}/phones`, body, config(token));
+}
 function getUsersCount() {
     return axios.get(`${import.meta.env.VITE_API_URL}/users/count`);
 }
@@ -51,6 +54,7 @@ const api = {
     getCategories, updateService,
     createService, getAllServices, getServicesByUser, getServicesById,
     getUsersCount, getServicesCount, getServiceAllInfo,
+    createPhone,
     getCep
 };
 export default api;
