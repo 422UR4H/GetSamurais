@@ -12,4 +12,8 @@ const StyledServicesContainer = styled.div`
     background-color: white;
     padding: 20px;
     border-radius: 30px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 `;

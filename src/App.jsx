@@ -6,6 +6,7 @@ import DashboardPage from "./pages/DashboardPage.jsx";
 import useToken from "./hooks/useToken.js";
 import Footer from "./components/molecules/Footer.jsx";
 import useCategories from "./hooks/useCategories.js";
+import ServicePage from "./pages/ServicePage.jsx";
 import api from "./services/api.js";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/cadastro" element={<SignUpPage />} />
         <Route path="/visao-geral" element={<DashboardPage />} />
+        <Route path="/servico/:id" element={<ServicePage />} />
       </Routes>
       {token && <Footer />}
     </BrowserRouter>

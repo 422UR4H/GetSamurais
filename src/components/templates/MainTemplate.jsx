@@ -21,8 +21,7 @@ export default function MainTemplate({ children }) {
 }
 
 const StyledTemplate = styled.div`
-    background-color: #111419;
-    height: 100vh;
+    padding-block: 90px 70px;
 
     display: flex;
     flex-direction: column;

@@ -1,10 +1,20 @@
 import { styled } from "styled-components";
+import dayjs from "dayjs";
+import { useNavigate } from "react-router-dom";
+import formatCurrency from "../../scripts/formatCurrency.js";
+
 
 export default function ServiceItem({ service }) {
-    const { mainPhoto } = service;
+    const { createdAt, id, price, category } = service;
+    const name = service.service;
+    const navigate = useNavigate();
+
     return (
-        <StyledServiceItem imgUrl={mainPhoto}>
-            ServiceItem
+        <StyledServiceItem onClick={() => navigate(`/servico/${id}`)}>
+            <h2>{category}</h2>
+            <h1>{name}</h1>
+            <p>{dayjs(createdAt).format("DD/MM/YYYY")}</p>
+            <span>{formatCurrency(price)}</span>
         </StyledServiceItem>
     );
 }
@@ -12,28 +22,29 @@ export default function ServiceItem({ service }) {
 const StyledServiceItem = styled.div`
     font-family: 'Lexend Deca', sans-serif;
     font-size: 1.15em;
-    color: black;
-
+    color: white;
+    
+    background-color: #111419;
     padding: 20px;
     border-radius: 20px;
 
-    background-color: white;
-    /* background-image: ${({ imgUrl }) => imgUrl && url(imgUrl)}; */
-    /* background-size: cover; */
-    /* background-repeat: no-repeat; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
-    /* opacity: 0.9;
-    position: relative;
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: inherit;
-        background-color: rgba(0, 0, 0, 0.35);
-        z-index: -1;
+    h2 {
+        color: red;
+        font-size: 0.8em;
     }
-    &:focus { } */
+
+    p {
+        color: gray;
+        font-size: 0.8em;
+    }
+
+    span {
+        font-size: 0.9em;
+        font-weight: 400;
+        text-align: end;
+    }
 `;
