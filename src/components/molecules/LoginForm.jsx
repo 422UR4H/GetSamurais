@@ -23,7 +23,6 @@ export default function LoginForm({ form, setForm, handleForm, setIsLoginOpen })
 
         api.signin(form)
             .then(({ data }) => {
-                console.log(data);
                 login(data);
                 setIsLoginOpen(false);
                 setForm({ email: "", password: "" });

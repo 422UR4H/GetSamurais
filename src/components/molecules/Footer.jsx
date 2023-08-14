@@ -11,7 +11,7 @@ export default function Footer() {
 }
 
 const StyledFooter = styled.footer`
-    background-color: indigo;
+    background-color: black;
     width: 100vw;
     padding: 15px;
     box-shadow: 0 -3px 8px 2px rgba(0, 0, 0, 0.4);
@@ -26,8 +26,7 @@ const StyledFooter = styled.footer`
     z-index: 2;
 
     a {
-        font-family: 'Lexend Deca', sans-serif;
         font-size: 1.15em;
-        color: white;
+        color: red;
     }
 `;

@@ -37,6 +37,7 @@ export default function DashboardPage() {
     }
 
     function addService(newService) {
+        console.log(newService)
         setServices([...services, newService])
     }
 
@@ -49,7 +50,9 @@ export default function DashboardPage() {
         <MainTemplate>
             {services?.length > 0 &&
                 <ServicesContainer textHeader="Seu(s) Serviço(s)">
-                    {services.map((s) => <ServiceItem key={s.id} service={s} />)}
+                    {services.map((s) => (
+                        <ServiceItem key={s.id} onClick={() => navigate(`/servico/${s.id}`)} service={s} />
+                    ))}
                 </ServicesContainer>
             }
 

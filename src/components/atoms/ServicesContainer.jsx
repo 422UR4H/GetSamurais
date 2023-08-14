@@ -10,6 +10,7 @@ export default function ServicesContainer({ children }) {
 
 const StyledServicesContainer = styled.div`
     background-color: white;
+    margin-top: 20px;
     padding: 20px;
     border-radius: 30px;
 

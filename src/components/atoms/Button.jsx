@@ -1,7 +1,7 @@
 import { ThreeDots } from 'react-loader-spinner';
 import { styled } from 'styled-components'
 
-export default function Button({ onClick, disabled, children, ref }) {
+export default function Button({ onClick, disabled, children }) {
     return (
         <StyledButton onClick={onClick} disabled={disabled}>
             {disabled ?

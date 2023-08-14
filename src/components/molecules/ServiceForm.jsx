@@ -33,6 +33,8 @@ export default function ServiceForm({ form, handleForm, addService, setServiceId
 
         api.createService(body, token)
             .then(({ data }) => {
+                console.log("data")
+                console.log(data)
                 alert("Cadastro realizado com sucesso!");
                 setServiceId(data.service.id);
                 setShowForm(0); // change to 2 when implement PhotosForm

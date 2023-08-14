@@ -2,15 +2,16 @@ import { styled } from "styled-components";
 import dayjs from "dayjs";
 import { useNavigate } from "react-router-dom";
 import formatCurrency from "../../scripts/formatCurrency.js";
+import CategoryIcon from "./CategoryIcon.jsx";
 
 
-export default function ServiceItem({ service }) {
+export default function ServiceItem({ onClick, service }) {
     const { createdAt, id, price, category } = service;
     const name = service.service;
-    const navigate = useNavigate();
 
     return (
-        <StyledServiceItem onClick={() => navigate(`/servico/${id}`)}>
+        <StyledServiceItem onClick={onClick}>
+            <CategoryIcon category={category} />
             <h2>{category}</h2>
             <h1>{name}</h1>
             <p>{dayjs(createdAt).format("DD/MM/YYYY")}</p>

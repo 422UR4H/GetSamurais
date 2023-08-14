@@ -7,6 +7,7 @@ import UserForm from "../components/molecules/UserForm.jsx";
 import AddressForm from "../components/molecules/AddressForm.jsx";
 import PhonesForm from "../components/molecules/PhonesForm.jsx";
 import { useState } from "react";
+import GoHomeFooter from "../components/molecules/GoHomeFooter.jsx";
 
 
 export default function SignUpPage() {
@@ -32,25 +33,29 @@ export default function SignUpPage() {
     });
 
     return (
-        <FormPagesTemplate>
-            <FormHeader text="Cadastro" />
-            {currForm === 1 && <UserForm
-                form={form}
-                handleForm={handleForm}
-                setForm={setForm}
-                setCurrForm={setCurrForm}
-            />}
-            {currForm === 2 && <AddressForm
-                form={form}
-                handleForm={handleForm}
-                setForm={setForm}
-                setCurrForm={setCurrForm}
-            />}
-            {currForm === 3 && <PhonesForm
-                form={form}
-                handleForm={handleForm}
-                setCurrForm={setCurrForm}
-            />}
-        </FormPagesTemplate>
+        <>
+            <FormPagesTemplate>
+                <FormHeader text="Cadastro" />
+                {currForm === 1 && <UserForm
+                    form={form}
+                    handleForm={handleForm}
+                    setForm={setForm}
+                    setCurrForm={setCurrForm}
+                />}
+                {currForm === 2 && <AddressForm
+                    form={form}
+                    handleForm={handleForm}
+                    setForm={setForm}
+                    setCurrForm={setCurrForm}
+                />}
+                {currForm === 3 && <PhonesForm
+                    form={form}
+                    handleForm={handleForm}
+                    setCurrForm={setCurrForm}
+                />}
+            </FormPagesTemplate>
+
+            <GoHomeFooter />
+        </>
     );
 }

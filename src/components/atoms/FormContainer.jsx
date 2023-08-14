@@ -15,7 +15,7 @@ const StyledFormContainer = styled.div`
     background-repeat: no-repeat;
     padding: 20px;
     border-radius: 30px;
-    opacity: 0.9;
+    opacity: 0.99;
     
     position: relative;
 

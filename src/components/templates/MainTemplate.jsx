@@ -21,7 +21,7 @@ export default function MainTemplate({ children }) {
 }
 
 const StyledTemplate = styled.div`
-    padding-block: 90px 70px;
+    padding-block: 70px 70px;
 
     display: flex;
     flex-direction: column;
