@@ -7,7 +7,6 @@ export default function FormPagesTemplate({ children }) {
     return (
         <StyledTemplate>
             <Header />
-            <Logo />
             <FormContainer>
                 {children}
             </FormContainer>

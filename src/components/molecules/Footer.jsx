@@ -14,6 +14,7 @@ const StyledFooter = styled.footer`
     background-color: indigo;
     width: 100vw;
     padding: 15px;
+    box-shadow: 0 -3px 8px 2px rgba(0, 0, 0, 0.4);
 
     display: flex;
     align-items: center;

@@ -3,20 +3,32 @@ import api from "../../services/api.js";
 import ButtonSubmit from "../atoms/ButtonSubmit.jsx";
 import Form from "../atoms/Form.jsx";
 import Input from "../styles/Input.js";
+import { useState } from "react";
 
 export default function PhonesForm({ form, handleForm, setCurrForm }) {
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
     function handleSubmit(e) {
         e.preventDefault();
+
+        if (isLoading) return;
+        setIsLoading(true);
+
+        const phoneNumber = form.phone
+            .replaceAll('-', '')
+            .replaceAll('.', '')
+            .replaceAll('(', '')
+            .replaceAll(')', '')
+            .replaceAll(' ', '');
+
         const { name, nick, email, birthday, password } = form;
         const { cep, city, street, lotNumber, complement, neighborhood, federalUnit } = form;
         const body = {
             user: { name, nick, email, birthday, password },
             address: { cep, city, street, lotNumber, complement, neighborhood, federalUnit },
-            phone: { phoneNumber: form.phone }
+            phone: { phoneNumber }
         }
-        // if (body.address.lotNumber === '') body.address.lotNumber = 0;
         if (body.address.lotNumber === '') delete body.address.lotNumber;
         if (body.address.complement === '') delete body.address.complement;
 
@@ -31,31 +43,23 @@ export default function PhonesForm({ form, handleForm, setCurrForm }) {
                 console.log(err);
                 alert(err.response.data);
             })
+            .finally(() => setIsLoading(false));
     }
 
     return (
         <Form onSubmit={handleSubmit}>
             <Input
                 name="phone"
-                type="number"
+                type="tel"
                 placeholder="Telefone"
                 value={form.phone}
                 onChange={handleForm}
                 minLength={10}
-                maxLength={11}
                 required
             />
-            <Input
-                name="phone2"
-                type="number"
-                placeholder="Telefone 2"
-                value={form.phone2}
-                onChange={handleForm}
-                minLength={10}
-                maxLength={11}
-                disabled={true}
-            />
-            <ButtonSubmit>Finalizar Cadastro</ButtonSubmit>
+            <ButtonSubmit disabled={isLoading}>
+                Finalizar Cadastro
+            </ButtonSubmit>
         </Form>
     );
 }

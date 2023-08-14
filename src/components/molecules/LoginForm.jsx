@@ -10,7 +10,7 @@ import FormHeader from "../atoms/FormHeader.jsx";
 import { useNavigate } from "react-router-dom";
 
 
-export default function LoginForm({ form, handleForm }) {
+export default function LoginForm({ form, setForm, handleForm, setIsLoginOpen }) {
     const [isLoading, setIsLoading] = useState(false);
     const { login } = useToken();
     const navigate = useNavigate();
@@ -25,8 +25,9 @@ export default function LoginForm({ form, handleForm }) {
             .then(({ data }) => {
                 console.log(data);
                 login(data);
-                // navigate("/");
-                navigate.reload();
+                setIsLoginOpen(false);
+                setForm({ email: "", password: "" });
+                navigate("/");
             })
             .catch(({ response }) => {
                 console.log(response);

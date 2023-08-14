@@ -13,7 +13,7 @@ export default function Header() {
     const navigate = useNavigate();
     const [isLoginOpen, setIsLoginOpen] = useState(false);
     const { token, logout } = useToken();
-    const { form, handleForm } = useForm({ email: "", password: "" });
+    const { form, setForm, handleForm } = useForm({ email: "", password: "" });
 
     function handleLoginClick() {
         setIsLoginOpen(true);
@@ -21,7 +21,7 @@ export default function Header() {
 
     function handleLogoutClick() {
         logout();
-        navigate.reload();
+        navigate("/");
     }
 
     function handleOverlayClick() {
@@ -32,10 +32,12 @@ export default function Header() {
         <StyledHeader>
             {isLoginOpen &&
                 <>
-                    <Overlay className="orverlay" onClick={handleOverlayClick} />
+                    <Overlay onClick={handleOverlayClick} />
                     <LoginForm
                         form={form}
+                        setForm={setForm}
                         handleForm={handleForm}
+                        setIsLoginOpen={setIsLoginOpen}
                     />
                 </>
             }
@@ -54,6 +56,7 @@ const StyledHeader = styled.header`
     background-color: indigo;
     width: 100vw;
     padding: 15px 20px;
+    box-shadow: 0 3px 8px 2px rgba(0, 0, 0, 0.4);
 
     display: flex;
     align-items: center;
