@@ -26,6 +26,9 @@ function getAllServices() {
 function getServicesByUser(token) {
     return axios.get(`${import.meta.env.VITE_API_URL}/services`, config(token));
 }
+function getServicesById(id) {
+    return axios.get(`${import.meta.env.VITE_API_URL}/services/id/${id}`);
+}
 function getCep(cep) {
     return axios.get(`http://viacep.com.br/ws/${cep}/json`);
 }
@@ -34,7 +37,7 @@ const api = {
     signin, signup,
     getUserByNick, getUserByEmail,
     getCategories,
-    createService, getAllServices, getServicesByUser,
+    createService, getAllServices, getServicesByUser, getServicesById,
     getCep
 };
 export default api;
