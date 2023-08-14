@@ -1,6 +1,5 @@
 import { styled } from "styled-components";
 import Header from "../molecules/Header.jsx";
-import Logo from "../atoms/Logo.jsx";
 import FormContainer from "../atoms/FormContainer.jsx";
 
 export default function FormPagesTemplate({ children }) {
