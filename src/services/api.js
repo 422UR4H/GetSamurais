@@ -45,7 +45,7 @@ function getServicesCount() {
     return axios.get(`${import.meta.env.VITE_API_URL}/services/count`);
 }
 function getCep(cep) {
-    return axios.get(`http://viacep.com.br/ws/${cep}/json`);
+    return axios.get(`https://viacep.com.br/ws/${cep}/json`);
 }
 
 const api = {
