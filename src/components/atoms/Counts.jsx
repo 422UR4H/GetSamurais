@@ -40,6 +40,7 @@ const StyledCounts = styled.section`
     margin-top: 15px;
 
     display: flex;
+    justify-content: center;
     gap: 20px;
 
     h1 {

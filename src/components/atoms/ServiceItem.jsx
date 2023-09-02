@@ -27,6 +27,7 @@ const StyledServiceItem = styled.div`
     
     background-color: #111419;
     padding: 20px;
+    min-width: 220px;
     border-radius: 20px;
 
     display: flex;

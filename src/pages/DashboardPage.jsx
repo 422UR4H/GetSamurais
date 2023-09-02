@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function DashboardPage() {
     const navigate = useNavigate();
-    const [services, setServices] = useState();
+    const [services, setServices] = useState([]);
     const [serviceId, setServiceId] = useState("");
     const [showForm, setShowForm] = useState(0);
     const { token } = useToken();

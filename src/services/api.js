@@ -24,7 +24,7 @@ function getAllServices() {
     return axios.get(`${import.meta.env.VITE_API_URL}/services`);
 }
 function getServicesByUser(token) {
-    return axios.get(`${import.meta.env.VITE_API_URL}/services`, config(token));
+    return axios.get(`${import.meta.env.VITE_API_URL}/services/user`, config(token));
 }
 function getServicesById(id) {
     return axios.get(`${import.meta.env.VITE_API_URL}/services/id/${id}`);
