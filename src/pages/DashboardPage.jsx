@@ -21,7 +21,8 @@ export default function DashboardPage() {
         name: "",
         serviceDescription: "",
         price: "",
-        paymentDescription: ""
+        paymentDescription: "",
+        mainPhoto: ""
     });
 
     useEffect(() => {

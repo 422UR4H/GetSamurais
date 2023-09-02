@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { styled } from "styled-components";
 import api from "../../services/api.js";
 import ButtonSubmit from "../atoms/ButtonSubmit.jsx";
@@ -5,12 +6,10 @@ import Form from "../atoms/Form.jsx";
 import Input from "../styles/Input.js";
 import FormContainer from "../atoms/FormContainer.jsx";
 import Checkbox from "../styles/Checkbox.js";
-import { useState } from "react";
 import Textarea from "../styles/Textarea.js";
 import useToken from "../../hooks/useToken.js";
 import useCategories from "../../hooks/useCategories.js";
 import Select from "../styles/Select.js";
-import { useNavigate } from "react-router-dom";
 
 
 export default function ServiceForm({ form, handleForm, addService, setServiceId, setShowForm }) {
@@ -48,7 +47,7 @@ export default function ServiceForm({ form, handleForm, addService, setServiceId
     }
 
     return (
-        <StyledServiceForm>
+        <StyledServiceForm $hasImage={!!form.mainPhoto}>
             <FormContainer>
                 <Form onSubmit={handleSubmit}>
                     <Input
@@ -93,6 +92,21 @@ export default function ServiceForm({ form, handleForm, addService, setServiceId
                         onChange={handleForm}
                         maxLength={255}
                     />
+                    <Input as="label" htmlFor="mainPhoto" className="label">
+                        {form.mainPhoto || "Escolher imagem"}
+                    </Input>
+                    <Input
+                        className="file-input"
+                        name="mainPhoto"
+                        id="mainPhoto"
+                        type="file"
+                        // value={form.mainPhoto}
+                        onChange={handleForm}
+                        max={1024 * 1024}
+                        accept=".jpg,.png"
+                        // multiple="true"
+                        formEncType="multipart/form-data"
+                    />
                     <Checkbox>
                         <label htmlFor="status">Serviço disponível</label>
                         <input
@@ -120,5 +134,16 @@ const StyledServiceForm = styled.div`
 
     * {
         opacity: 0.99;
+    }
+
+    .label {
+        color: ${({ $hasImage }) => $hasImage ? "white" : "lightgray"};
+        line-height: 28px;
+        padding-block: 5px;
+        overflow: hidden;
+    }
+
+    input[type="file"] {
+        display: none;
     }
 `;
