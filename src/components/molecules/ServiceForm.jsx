@@ -15,6 +15,7 @@ import Select from "../styles/Select.js";
 export default function ServiceForm({ form, handleForm, addService, setServiceId, setShowForm }) {
     const [selectedCategory, setSelectedCategory] = useState('Categoria');
     const [availableStatus, setAvailableStatus] = useState(false);
+    const [mainPhoto, setMainPhoto] = useState(undefined);
     const [isLoading, setIsLoading] = useState(false);
     const { categories } = useCategories();
     const { token } = useToken();
@@ -25,10 +26,9 @@ export default function ServiceForm({ form, handleForm, addService, setServiceId
         if (isLoading) return;
         setIsLoading(true);
 
-        const { name, serviceDescription, price, paymentDescription } = form;
-        const service = { name, serviceDescription, price, paymentDescription, status: availableStatus };
-        const body = { service, categories: { category: selectedCategory } };
-        if (paymentDescription === '') delete body.service.paymentDescription;
+        const service = { ...form, status: availableStatus };
+        const body = { service, mainPhoto, categories: { category: selectedCategory } };
+        if (service.paymentDescription === '') delete body.service.paymentDescription;
 
         api.createService(body, token)
             .then(({ data }) => {
@@ -93,15 +93,15 @@ export default function ServiceForm({ form, handleForm, addService, setServiceId
                         maxLength={255}
                     />
                     <Input as="label" htmlFor="mainPhoto" className="label">
-                        {form.mainPhoto || "Escolher imagem"}
+                        {mainPhoto || "Escolher imagem"}
                     </Input>
                     <Input
                         className="file-input"
                         name="mainPhoto"
                         id="mainPhoto"
                         type="file"
-                        // value={form.mainPhoto}
-                        onChange={handleForm}
+                        // value={mainPhoto}
+                        onChange={(e) => setMainPhoto(e.target.value)}
                         max={1024 * 1024}
                         accept=".jpg,.png"
                         // multiple="true"
